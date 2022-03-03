@@ -1,36 +1,38 @@
 import UIKit
 
 
-let a = 2.5
-let b = 9.7
-let c = 6.9
-let d = 8.2
+let firstNumber = 2.5
+let secondNumber = 9.7
+let thirdNumber = 6.9
+let fourthNumber = 8.2
 
-var intPartFromA = Int(a)
-var fractinalPartFromA = a - Double(intPartFromA)
-var intPartFromB = Int(b)
-var fractinalPartFromB = (b - Double(intPartFromB))
-var intPartFromC = Int(c)
-var fractinalPartFromC = c - Double(intPartFromC)
-var intPartFromD = Int(d)
-var fractinalPartFromD = d - Double(intPartFromD)
+let firstNumberIntPart = Int(firstNumber)
+let fractinalPartFromA = firstNumber - Double(firstNumberIntPart)
+let secondNumberIntPart = Int(secondNumber)
+let fractinalPartFromB = (secondNumber - Double(secondNumberIntPart))
+let thirdNumberIntPart = Int(thirdNumber)
+let fractinalPartFromC = thirdNumber - Double(thirdNumberIntPart)
+let fourthNumberIntPart = Int(fourthNumber)
+let fractinalPartFromD = fourthNumber - Double(fourthNumberIntPart)
 //We can also extract the fractional part using "truncatingRemainder"
 
-var sumOfIntPart = intPartFromA + intPartFromB + intPartFromC + intPartFromD
-print("Sum of integer part from digit: ", sumOfIntPart)
-var sumOfFractionalPart = fractinalPartFromA + fractinalPartFromB + fractinalPartFromC + fractinalPartFromD
-print("Sum of fractional part from digit: ", NSString(format: "%.1f", sumOfFractionalPart))
+let intPartSum = firstNumberIntPart + secondNumberIntPart + thirdNumberIntPart + fourthNumberIntPart
+print("Sum of integer part from digit: ", intPartSum)
+let fractionalPartSum = fractinalPartFromA + fractinalPartFromB + fractinalPartFromC + fractinalPartFromD
+print("Sum of fractional part from digit: ", NSString(format: "%.1f", fractionalPartSum))
 
 // Parity check
 
 print("\nParity Check:")
-var ourDigits = [intPartFromA, intPartFromB, intPartFromC, intPartFromD]
-for i in ourDigits {
-    if i % 1 == 0 {
-        print(i, "- This digit is parity")
+var ourDigits = [firstNumberIntPart, secondNumberIntPart, thirdNumberIntPart, fourthNumberIntPart]
+for digit in ourDigits {
+    if digit % 2 == 0 {
+        print(digit, "- This digit is parity")
+    }
+    else{
+        print(digit, "- This digit is not parity")
     }
 }
-
 
 
 // Extra exercises
@@ -57,8 +59,7 @@ let takenApple = false
 let takenOrange = true
 let shouldGoToWork: String
 
-var condition = (hasKey && hasDocuments && hasPen && (takenApple || takenOrange))
-if (condition) {
+if hasKey && hasDocuments && hasPen && (takenApple || takenOrange) {
     shouldGoToWork = "You took all things, you can go to work"
 }
 else {
@@ -69,19 +70,19 @@ print(shouldGoToWork)
 // Task 3
 print("\n")
 
-let numberToDevide = 25
+let numberToDivide = 25
 
-if numberToDevide % 5 == 0 && numberToDevide % 3 == 0 {
-    print(numberToDevide, "- This number can be divided by 5 and 3 without a reminder")
+if numberToDivide % 5 == 0 && numberToDivide % 3 == 0 {
+    print(numberToDivide, "- This number can be divided by 5 and 3 without a reminder")
 }
-else if numberToDevide % 5 == 0 {
-    print(numberToDevide, "- This number can be divided by 5 without a reminder")
+else if numberToDivide % 5 == 0 {
+    print(numberToDivide, "- This number can be divided by 5 without a reminder")
 } 
-else if numberToDevide % 3 == 0 {
-    print(numberToDevide, "- This number can be divided by 3 without a reminder")
+else if numberToDivide % 3 == 0 {
+    print(numberToDivide, "- This number can be divided by 3 without a reminder")
 }
 else {
-    print(numberToDevide, "- This number can't be divided by 3 and 5 without a reminder")
+    print(numberToDivide, "- This number can't be divided by 3 and 5 without a reminder")
 }
 
 // Task 4
