@@ -2,18 +2,14 @@ import UIKit
 import Foundation
 
 
-let arrayOfTuples = [(26, "Age"), (185, "Heigh"), (10, "Size Of Leg"), (79, "Weight")]
+let tuplesArray = [(26, "Age"), (185, "Heigh"), (10, "Size Of Leg"), (79, "Weight")]
 
 // First Task
 
 func powIntValuesFromArray(_ array: [(value: Int, name: String)]) -> [Int] {
     var resultArray: [Int] = []
-    var arrayOfInteger: [Int] = []
-    for intElement in array {
-        arrayOfInteger.append(intElement.value)
-    }
-    for number in 0..<arrayOfInteger.count {
-        resultArray.append(Int(pow(Double(arrayOfInteger[number]), 2)))
+    for number in 0..<array.count {
+        resultArray.append(Int(pow(Double(array[number].value), 2)))
     }
     print("Result of squaring Int element from array: ", resultArray)
     
@@ -26,40 +22,35 @@ for intElement in array {
 }
 */
 
-powIntValuesFromArray(arrayOfTuples)
+powIntValuesFromArray(tuplesArray)
 
 
 // Second Task
 
 func searchEvenNumbersInArray(_ array: [(value: Int, name: String)]) -> [Int] {
-    var arrayOfEvenNumbers: [Int] = []
-    for intElemnet in array {
-        if(intElemnet.value % 2 == 0) {
-            arrayOfEvenNumbers.append(intElemnet.value)
+    var evenNumbersArray: [Int] = []
+    for intElement in array {
+        if intElement.value % 2 == 0 {
+            evenNumbersArray.append(intElement.value)
         }
     }
-    print("Even numbers from array: ", arrayOfEvenNumbers)
+    print("Even numbers from array: ", evenNumbersArray)
     
-    return arrayOfEvenNumbers
+    return evenNumbersArray
 }
 
-searchEvenNumbersInArray(arrayOfTuples)
+searchEvenNumbersInArray(tuplesArray)
 
 // Second task with *
 
-func searchEvenNumbersInArrayWithFilter(_ array: [(value: Int, name: String)]) -> [Int] {
-    var intArray: [Int] = []
-    for intElement in array {
-        intArray.append(intElement.value)
-    }
-
-    let evenNumbers = intArray.filter { $0.isMultiple(of: 2) }
-    print("Even numbers from array: ", evenNumbers)
+func searchEvenNumbersInArrayWithFilter(_ array: [(value: Int, name: String)]) -> [(Int, String)] {
+    let evenNumbers = array.filter { $0.value.isMultiple(of: 2)}
+    print("Array with even numbers: ", evenNumbers)
     
     return evenNumbers
 }
 
-searchEvenNumbersInArrayWithFilter(arrayOfTuples)
+searchEvenNumbersInArrayWithFilter(tuplesArray)
 
 // Third Task
 
@@ -70,8 +61,8 @@ func sortArrayOfTuples(_ array: [(value: Int, name: String)]) {
         }
         return $0.name.count < $1.name.count
     }
-    print("Sorted array by lenght: ", sortedArray)
+    print("Sorted array by length: ", sortedArray)
 }
 
-sortArrayOfTuples(arrayOfTuples)
+sortArrayOfTuples(tuplesArray)
 
