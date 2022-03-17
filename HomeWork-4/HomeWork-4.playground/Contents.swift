@@ -20,13 +20,13 @@ countryDictionaryWithFacts.removeValue(forKey: "Monaco")
 
 // Second Task
 
-var filteredCountryDictionary = countryDictionaryWithFacts.filter { $0.key.count > 6}
+let filteredCountryDictionary = countryDictionaryWithFacts.filter { $0.key.count > 6 }
 print(filteredCountryDictionary)
 
 // Third Task
 
 var arrayOfCountryFacts: [String] = []
-for (country, fact)  in countryDictionaryWithFacts {
+for (country, fact) in countryDictionaryWithFacts {
     arrayOfCountryFacts.append("\(country): \(fact.0)")
 }
 let sortedArrayByLength = arrayOfCountryFacts.sorted { $0.count > $1.count }
@@ -34,22 +34,11 @@ print(sortedArrayByLength)
 
 // Fourth Task
 
-var countriesArray:[String] = []
-
-func findCountryByContinent(_ continent: String) {
-    for continents in countryDictionaryWithFacts {
-        if continents.value.1 == continent {
-            countriesArray.append(continents.key)
-        }
-    }
-    if countriesArray.isEmpty {
-        print("Countries by this continent not found.")
-    } else {
-        print("On the continent '\(continent)' we found the following countries: \(countriesArray)")
-    }
+let reduceCountryByContinent = countryDictionaryWithFacts.reduce(into: [String: [String]]()) {
+    $0[$1.value.1, default: []] += [$1.key]
 }
-
-findCountryByContinent("Europe")
+print(reduceCountryByContinent)
+reduceCountryByContinent["Europe"]
 
 // Extra task
 
@@ -60,7 +49,7 @@ let removeDuplicateBySet = Array(Set(animalsArray))
 print(removeDuplicateBySet)
 
 // Second option
-let removeDuplicateByMap = NSOrderedSet(array: animalsArray).map( { $0 as! String} )
+let removeDuplicateByMap = NSOrderedSet(array: animalsArray).compactMap( { $0 as? String} )
 print(removeDuplicateByMap)
 
 // Third option
@@ -91,5 +80,5 @@ let reduceResult = animalsArray.removingDuplicatesWithReduce()
 print(reduceResult)
 
 // Sixth option
-let removeDublicatesByFilterAndMap = animalsArray.enumerated().filter{ animalsArray.firstIndex(of: $0.1) == $0.0 }.map{ $0.1 }
+let removeDublicatesByFilterAndMap = animalsArray.enumerated().filter { animalsArray.firstIndex(of: $0.1) == $0.0 }.map { $0.1 }
 print(removeDublicatesByFilterAndMap)
