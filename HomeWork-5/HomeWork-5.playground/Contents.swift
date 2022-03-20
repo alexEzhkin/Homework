@@ -17,12 +17,10 @@ let optionalStringArray = ["Language", "Skills", nil, "Country", "Heigh", "Anima
 var charactersArray = [Character]()
 
 for element in optionalStringArray {
-    if let element = element {
-        let lowercasedCharactersArray  = Array(element.lowercased())
-        charactersArray.append(contentsOf: lowercasedCharactersArray)
-    } else {
-        continue
-    }
+    guard let element = element else { continue }
+
+    let lowercasedCharactersArray  = Array(element.lowercased())
+    charactersArray.append(contentsOf: lowercasedCharactersArray)
 }
 
 func characterFrequencies(of array: [Character]) -> Dictionary<String.Element, Int> {
@@ -45,9 +43,6 @@ func multiplyOptionals(_ firstOptionalIntNumber: Int?, by secondOptionalIntNumbe
     if let firstInt = firstOptionalIntNumber, let secondInt = secondOptionalIntNumber {
         return firstInt * secondInt
     }
-    else {
-        print("Some value is empty")
-    }
     return 0
 }
 print(multiplyOptionals(15, by: 3))
@@ -56,15 +51,12 @@ func divideOptionals(_ firstOptionalFloatNumber: Float?, by secondOptionalFloatN
     if let firstFloat = firstOptionalFloatNumber, let secondFloat = secondOptionalFloatNumber {
         return firstFloat / secondFloat
     }
-    else {
-        print("Some value is empty")
-    }
     return 0
 }
 print(divideOptionals(357.2312, by: 2.122))
 
-func subtractOptionals(_ firstoptionalDoubleNumber: Double?, minus secondOptionalDoubleNumber: Double?) -> Double {
-    (firstoptionalDoubleNumber ?? 0) - (secondOptionalDoubleNumber ?? 0)
+func subtractOptionals(_ firstOptionalDoubleNumber: Double?, minus secondOptionalDoubleNumber: Double?) -> Double {
+    (firstOptionalDoubleNumber ?? 0) - (secondOptionalDoubleNumber ?? 0)
 }
 print(subtractOptionals(9323.111, minus: 72333.23))
 
@@ -78,13 +70,18 @@ print(powOptionals(87, factor: 2))
 
 // Fourth Task
 
+let ignoredSymbols = [" ", ".", "!", "?", ":", ",", "-", "(", ")"]
+
 func checkPalindrome(_ optionalString: String?) -> Bool {
     guard var string = optionalString else {
-        print("Imput string is empty")
+        print("Input string is empty")
         return false
     }
-    string = string.lowercased().replacingOccurrences(of: " ", with: "")
+    for symbols in ignoredSymbols {
+        string = string.lowercased().replacingOccurrences(of: symbols, with: "")
+    }
     return string == String(string.reversed())
 }
 print(checkPalindrome("Too bad i hid a boot"))
+print(checkPalindrome("Too.., bad !i -hid a )boo!?t"))
 print(checkPalindrome("Too bad hi hid a boot"))
