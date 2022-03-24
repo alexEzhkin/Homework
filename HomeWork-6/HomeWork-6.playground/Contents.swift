@@ -30,7 +30,7 @@ struct Student {
         self.subjectWithMark = subjectWithMark
     }
     
-    mutating func addSubjectWithMarkToStudent(subject: String, mark: Int) {
+    mutating func addSubjectWithMark(subject: String, mark: Int) {
         let schoolSubjects = ["Math", "English", "Music", "History", "Science", "Geography", "Information technology", "Biology", "Drama", "Swimming", "Physical education"]
         let subjectMark = 0...10
         
@@ -38,10 +38,11 @@ struct Student {
             subjectWithMark.append((subject, mark))
         }
         else {
-            print("You write wrnog data")
+            print("You write wrong data")
         }
     }
-    func printInformationAboutStudent() {
+    
+    func printInformation() {
         let information = ("Student: \(name)" + " " + "\(surname)\n" +
                     "Class: \(classNumber)\n" +
                     "Subject with mark: \(subjectWithMark)")
@@ -49,7 +50,7 @@ struct Student {
     }
 }
 var alexYozhkin = Student(name: "Alex", surname: "Yozhkin", classNumber: 7, subjectWithMark: [("Math", 10)])
-alexYozhkin.addSubjectWithMarkToStudent(subject: "Swimming", mark: 9)
+alexYozhkin.addSubjectWithMark(subject: "Swimming", mark: 9)
 
 var artemBudnikov = Student(name: "Artem", surname: "Budnikov", classNumber: 7, subjectWithMark: [("English", 5), ("Biology", 7)])
 
@@ -57,8 +58,8 @@ var nikitaShatukha = Student(name: "Nikita", surname: "Shatukha", classNumber: 1
 
 let studentsArray = [alexYozhkin, artemBudnikov, nikitaShatukha]
 
-let studentsInformation = School(students: studentsArray)
-studentsInformation.printStudentsInfo()
+let school = School(students: studentsArray)
+school.printStudentsInfo()
 
-alexYozhkin.printInformationAboutStudent()
+alexYozhkin.printInformation()
 
