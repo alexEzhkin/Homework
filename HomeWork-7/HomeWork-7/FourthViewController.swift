@@ -22,27 +22,20 @@ class FourthViewController: UIViewController {
         
     }
     
-    @IBAction func addStudentButton(_ sender: Any) {
+    @IBAction func handleAddStudentButton(_ sender: Any) {
         
-        if let firstNameText = firstNameTextField.text, let secondNameText = secondNameTextField.text, !secondNameText.isEmpty, let surnameText = surnameTextField.text, !surnameText.isEmpty, let ageText = ageTextField.text, !ageText.isEmpty, let classNumberText = classNumberTextField.text, !classNumberText.isEmpty {
+        if let firstNameText = firstNameTextField.text,
+           let secondNameText = secondNameTextField.text, !secondNameText.isEmpty,
+           let surnameText = surnameTextField.text, !surnameText.isEmpty,
+           let ageText = ageTextField.text, !ageText.isEmpty,
+           let classNumberText = classNumberTextField.text, !classNumberText.isEmpty {
             studentInformation.append((firstName: firstNameText, secondName: secondNameText, surname: surnameText, age: ageText, classNumber: classNumberText))
         } else {
             alertAction()
         }
-
-/*
- Or this method:
- But in this case, to unwrap optionals, we use "!"
-        
-        guard firstNameTextField.text != "", secondNameTextField.text != "", surnameTextField.text != "", ageTextField.text != "", classNumberTextField.text != "" else {
-            return alertAction()
-        }
-        studentInformation.append((firstName: firstNameTextField.text!, secondName: secondNameTextField.text!, surname: surnameTextField.text!, age: ageTextField.text!, classNumber: classNumberTextField.text!))
-*/
-        
     }
     
-    @IBAction func printStudentsButton(_ sender: Any) {
+    @IBAction func handlePrintStudentsButton(_ sender: Any) {
         for student in studentInformation {
             print("First name: \(student.firstName) | Second Name: \(student.secondName) | Surname: \(student.surname) | Age: \(student.age) | Class Number: \(student.classNumber)")
         }
@@ -50,12 +43,10 @@ class FourthViewController: UIViewController {
     
     func alertAction() {
         let alert = UIAlertController(title: "Alert", message: "Please fill in all information about student", preferredStyle: .alert)
-            
-             let okButton = UIAlertAction(title: "OK", style: .default, handler: { action in
-             })
-             alert.addAction(okButton)
-             DispatchQueue.main.async(execute: {
-                self.present(alert, animated: true)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: { action in })
+        alert.addAction(okButton)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
         })
     }
 }

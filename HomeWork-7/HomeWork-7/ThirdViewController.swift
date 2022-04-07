@@ -9,10 +9,12 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
-    @IBOutlet weak var circleLable: UILabel!
+    @IBOutlet weak var circleLable: UIView!
     
     @IBOutlet weak var controlView: UIView!
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var circleContainerView: UIView!
+    
+    let step: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,36 +24,26 @@ class ThirdViewController: UIViewController {
     }
     
     @IBAction func upButton(_ sender: Any) {
-        if circleLable.frame.origin.y <= 0 {
-            circleView.frame.origin = self.circleView.frame.origin
-        }
-        else {
-            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y - 10)
+        if circleLable.frame.minY + step >= 0 {
+            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y - step)
         }
     }
     
     @IBAction func leftButton(_ sender: Any) {
-        if circleLable.frame.origin.x <= 0 {
-            circleView.frame.origin = self.circleView.frame.origin
-        } else {
-            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x - 10, y: circleLable.frame.origin.y)
+        if circleLable.frame.minX - step >= 0 {
+            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x - step, y: circleLable.frame.origin.y)
         }
     }
     
     @IBAction func rightButton(_ sender: Any) {
-        if circleLable.frame.midX + circleLable.frame.width >= circleView.frame.width {
-            circleView.frame.origin = self.circleView.frame.origin
-        }
-        else {
-            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x + 10, y: circleLable.frame.origin.y)
+        if circleLable.frame.midX + circleLable.frame.width <= circleContainerView.frame.width {
+            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x + step, y: circleLable.frame.origin.y)
         }
     }
     
     @IBAction func downButton(_ sender: Any) {
-        if circleLable.frame.intersects(controlView.frame) == false {
-        circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y + 10)
-        } else {
-            circleLable.frame.origin = self.circleLable.frame.origin
+        if circleLable.frame.maxY + step <= circleContainerView.frame.height {
+        circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y + step)
         }
     }
 }

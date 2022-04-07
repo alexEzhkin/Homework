@@ -98,7 +98,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cxr-94-0yP"/>
                     <connections>
-                        <outlet property="circleView" destination="kho-es-OTi" id="kRO-Zu-YFn"/>
+                        <outlet property="circleContainerView" destination="kho-es-OTi" id="kRO-Zu-YFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uzl-zP-bkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAr-c4-SZp">
-                                <rect key="frame" x="0.0" y="630" width="414" height="266"/>
+                                <rect key="frame" x="0.0" y="633" width="414" height="263"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCY-7V-jLv">
@@ -311,8 +311,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GqI-Xs-Bp6"/>
                     <connections>
+                        <outlet property="circleContainerView" destination="Tag-Ro-51v" id="Slr-vz-JnQ"/>
                         <outlet property="circleLable" destination="fIV-6v-t8f" id="OGa-IK-K1N"/>
-                        <outlet property="circleView" destination="Tag-Ro-51v" id="Slr-vz-JnQ"/>
                         <outlet property="controlView" destination="dAr-c4-SZp" id="ftx-8m-xqD"/>
                     </connections>
                 </viewController>
@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDC-le-fj2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="660"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="627"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpk-Pi-Gfz">
@@ -385,7 +385,7 @@
                     <connections>
                         <outlet property="firstSquareFigure" destination="Zpk-Pi-Gfz" id="0H6-1b-brA"/>
                         <outlet property="secondSquareFigure" destination="w9w-fS-TvE" id="6i5-2Q-aYh"/>
-                        <outlet property="squareView" destination="cDC-le-fj2" id="J5F-j3-axJ"/>
+                        <outlet property="squaresContainerView" destination="cDC-le-fj2" id="J5F-j3-axJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgw-C1-h0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

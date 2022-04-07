@@ -9,10 +9,10 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
-    @IBOutlet weak var squareView: UIView!
+    @IBOutlet weak var squaresContainerView: UIView!
     
-    @IBOutlet weak var firstSquareFigure: UILabel!
-    @IBOutlet weak var secondSquareFigure: UILabel!
+    @IBOutlet weak var firstSquareFigure: UIView!
+    @IBOutlet weak var secondSquareFigure: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +20,17 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func showSquares(_ sender: Any) {
-        squareView.isHidden = false
+        squaresContainerView.isHidden = false
         
-        firstSquareFigure.layer.position = CGPoint(x: CGFloat.random(in: 0...squareView.frame.size.width - firstSquareFigure.frame.width), y: CGFloat.random(in: 0...squareView.frame.size.height - firstSquareFigure.frame.height))
-        secondSquareFigure.layer.position = CGPoint(x: CGFloat.random(in: 0...squareView.frame.size.width - secondSquareFigure.frame.width), y: CGFloat.random(in: 0...squareView.frame.size.height - secondSquareFigure.frame.height))
+        firstSquareFigure.frame.origin = CGPoint(x: CGFloat.random(in: 0...squaresContainerView.frame.width - firstSquareFigure.frame.width * 2), y: CGFloat.random(in: 0...squaresContainerView.frame.height - firstSquareFigure.frame.height * 2))
+        secondSquareFigure.frame.origin = CGPoint(x: CGFloat.random(in: 0...squaresContainerView.frame.width - secondSquareFigure.frame.width * 2), y: CGFloat.random(in: 0...squaresContainerView.frame.height - secondSquareFigure.frame.height * 2))
         
-        while firstSquareFigure.frame.intersects(secondSquareFigure.frame) == true {
-            secondSquareFigure.layer.position = CGPoint(x: CGFloat.random(in: 0...squareView.frame.size.width - secondSquareFigure.frame.width), y: CGFloat.random(in: 0...squareView.frame.size.height - secondSquareFigure.frame.height))
+        while firstSquareFigure.frame.intersects(secondSquareFigure.frame) {
+            secondSquareFigure.frame.origin = CGPoint(x: CGFloat.random(in: 0...squaresContainerView.frame.width - secondSquareFigure.frame.width * 2), y: CGFloat.random(in: 0...squaresContainerView.frame.height - secondSquareFigure.frame.height * 2))
         }
     }
     
     @IBAction func clearView(_ sender: Any) {
-        squareView.isHidden = true
+        squaresContainerView.isHidden = true
     }
 }

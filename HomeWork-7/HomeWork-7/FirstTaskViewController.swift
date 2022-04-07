@@ -18,28 +18,29 @@ extension UIColor {
 
 class FirstTaskViewController: UIViewController {
     
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var circleContainerView: UIView!
+    
+    private var circleView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.circleView = UILabel(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        circleView.center = CGPoint(x: CGFloat.random(in: 0...circleView.frame.size.width), y: CGFloat.random(in: 0...circleView.frame.size.height))
+        circleView.layer.cornerRadius = circleView.frame.width/2
+        circleView.layer.masksToBounds = true
+        circleView.backgroundColor = .black
+        
+        circleContainerView.addSubview(circleView)
+        self.circleView.isHidden = true
         
     }
     
     @IBAction func handleTap(_ sender: Any) {
         
-        let circle = UILabel(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        self.circleView.isHidden = false
         
-        circle.center = CGPoint(x: CGFloat.random(in: 0...circleView.frame.size.width), y: CGFloat.random(in: 0...circleView.frame.size.height))
-        circle.layer.cornerRadius = circle.frame.width/2
-        circle.layer.masksToBounds = true
-        circle.backgroundColor = .black
-        
-        if self.circleView.subviews.isEmpty {
-            self.circleView.addSubview(circle)
+        self.circleView.frame.origin = CGPoint(x: CGFloat.random(in: 0...circleContainerView.frame.width - circleView.frame.width * 2), y: CGFloat.random(in: 0...circleContainerView.frame.height - circleView.frame.height * 2))
+        self.circleView.backgroundColor = .random
         }
-        else {
-            self.circleView.subviews.first?.center = CGPoint(x: CGFloat.random(in: 0...circleView.frame.size.width), y: CGFloat.random(in: 0...circleView.frame.size.height))
-            self.circleView.subviews.first?.backgroundColor = .random
-        }
-    }
 }
