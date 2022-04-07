@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, SecondViewControllerDelegate {
     
-    func passTextFromTextFIeld(nameText: String, surnameText: String, ageText: String, genderText: String) {
+    func passTextFromTextField(nameText: String, surnameText: String, ageText: String, genderText: String) {
         nameTextField.text = nameText
         surnameTextField.text = surnameText
         ageTextField.text = ageText

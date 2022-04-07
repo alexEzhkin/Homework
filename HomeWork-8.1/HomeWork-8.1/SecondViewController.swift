@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SecondViewControllerDelegate {
-    func passTextFromTextFIeld(nameText: String, surnameText: String, ageText: String, genderText: String)
+    func passTextFromTextField(nameText: String, surnameText: String, ageText: String, genderText: String)
 }
 
 class SecondViewController: UIViewController {
@@ -34,7 +34,7 @@ class SecondViewController: UIViewController {
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true) {
-            self.delegate?.passTextFromTextFIeld(nameText: self.nameOutputLabel.text ?? "", surnameText: self.surnameOutputLabel.text ?? "", ageText: self.ageOutputLabel.text ?? "", genderText: self.genderOutputLabel.text ?? "")
+            self.delegate?.passTextFromTextField(nameText: self.nameOutputLabel.text ?? "", surnameText: self.surnameOutputLabel.text ?? "", ageText: self.ageOutputLabel.text ?? "", genderText: self.genderOutputLabel.text ?? "")
         }
     }
 }
