@@ -17,7 +17,7 @@ class SecondTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        circleView.layer.cornerRadius = circleView.frame.width/2
+        circleView.layer.cornerRadius = circleView.frame.width / 2
         circleView.layer.masksToBounds = true
         
         addSwipeGestureRecognizerUp()
@@ -74,7 +74,7 @@ class SecondTaskViewController: UIViewController {
     }
     
     @objc private func handleRightSwipe(gesture: UISwipeGestureRecognizer) {
-        if circleView.frame.midX + circleView.frame.width <= circleContainerView.frame.width {
+        if circleView.frame.maxX + step <= circleContainerView.frame.width {
             circleView.frame.origin = CGPoint(x: circleView.frame.origin.x + step, y: circleView.frame.origin.y)
         }
     }

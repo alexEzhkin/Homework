@@ -24,6 +24,9 @@ class StudentViewController: UIViewController {
                 .instantiateViewController(withIdentifier: "studentInfoVC") as? StudentInfoViewController else { return }
         
         navigationController?.pushViewController(studentInfoViewController, animated: true)
-        studentInfoViewController.student = Student(name: nameTextField.text ?? "", surname: surnameTextField.text ?? "", age: ageTextField.text ?? "", gender: genderTextField.text ?? "")
+        studentInfoViewController.student = Student(name: nameTextField.text ?? "",
+                                                    surname: surnameTextField.text ?? "",
+                                                    age: ageTextField.text ?? "",
+                                                    gender: genderTextField.text ?? "")
     }
 }

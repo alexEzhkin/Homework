@@ -36,7 +36,7 @@ class FirstTaskViewController: UIViewController {
         let tapLocation = gesture.location(in: circleContainerView)
         let xCoordinatesOfCircle = circleView.frame.minX...circleView.frame.maxX
         let yCoordinatesOfCircle = circleView.frame.minY...circleView.frame.maxY
-        if xCoordinatesOfCircle.contains(tapLocation.x) && yCoordinatesOfCircle.contains(tapLocation.y) && circleView.isHidden == true {
+        if xCoordinatesOfCircle.contains(tapLocation.x) && yCoordinatesOfCircle.contains(tapLocation.y) && circleView.isHidden {
             circleView.center = tapLocation
             circleView.isHidden = false
         } else if xCoordinatesOfCircle.contains(tapLocation.x) && yCoordinatesOfCircle.contains(tapLocation.y) {
