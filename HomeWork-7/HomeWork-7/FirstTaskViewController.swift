@@ -25,7 +25,7 @@ class FirstTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.circleView = UILabel(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        self.circleView = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         circleView.center = CGPoint(x: CGFloat.random(in: 0...circleView.frame.size.width), y: CGFloat.random(in: 0...circleView.frame.size.height))
         circleView.layer.cornerRadius = circleView.frame.width/2
         circleView.layer.masksToBounds = true

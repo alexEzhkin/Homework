@@ -43,7 +43,7 @@ class ThirdViewController: UIViewController {
     
     @IBAction func downButton(_ sender: Any) {
         if circleLable.frame.maxY + step <= circleContainerView.frame.height {
-        circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y + step)
+            circleLable.frame.origin = CGPoint(x: circleLable.frame.origin.x, y: circleLable.frame.origin.y + step)
         }
     }
 }
